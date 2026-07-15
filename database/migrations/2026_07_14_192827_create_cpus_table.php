@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('cpus', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name', length: 200)->unique();
+            $table->decimal('clockspeed', total: 8, places: 2);
+            $table->string('clockspeed_unit', length: 5);
+            $table->foreignId('manufacturer_id')->constrained('manufacturers')->onDelete('cascade'); // Foreign key to manufacturers table
         });
     }
 

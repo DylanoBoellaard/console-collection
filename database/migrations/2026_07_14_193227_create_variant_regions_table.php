@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('variant_regions', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('variant_id')->constrained('variants')->onDelete('cascade'); // Foreign key to variants table
+            $table->foreignId('region_id')->constrained('regions')->onDelete('cascade'); // Foreign key to regions table
         });
     }
 

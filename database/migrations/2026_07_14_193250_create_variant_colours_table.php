@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('variant_colours', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('variant_id')->constrained('variants')->onDelete('cascade'); // Foreign key to variants table
+            $table->foreignId('colour_id')->constrained('colours')->onDelete('cascade'); // Foreign key to colours table
         });
     }
 

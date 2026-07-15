@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('threejs_models', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('file_name', length: 250)->unique();
+            $table->foreignId('variant_id')->constrained('variants')->onDelete('cascade'); // Foreign key to variants table
         });
     }
 

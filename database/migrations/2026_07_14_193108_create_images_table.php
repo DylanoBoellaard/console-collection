@@ -14,6 +14,13 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('file_name', length: 250)->unique();
+            $table->string('caption', length: 250);
+            $table->foreignId('image_type_id')->constrained('image_types')->onDelete('cascade'); // Foreign key to image_types table
+            $table->foreignId('variant_id')->constrained('variants')->onDelete('cascade')->nullable(); // Foreign key to variants table
+            $table->foreignId('controller_id')->constrained('controllers')->onDelete('cascade')->nullable(); // Foreign key to controllers table
+            $table->foreignId('accessory_id')->constrained('accessories')->onDelete('cascade')->nullable(); // Foreign key to accessories table
+            $table->foreignId('game_id')->constrained('games')->onDelete('cascade')->nullable(); // Foreign key to games table
         });
     }
 

@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('controller_colours', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('controller_id')->constrained('controllers')->onDelete('cascade'); // Foreign key to controllers table
+            $table->foreignId('colour_id')->constrained('colours')->onDelete('cascade'); // Foreign key to colours table
         });
     }
 

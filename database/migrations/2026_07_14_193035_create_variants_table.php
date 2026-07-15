@@ -14,6 +14,14 @@ return new class extends Migration
         Schema::create('variants', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name', length: 200)->unique();
+            $table->string('description', length: 1000);
+            $table->boolean('is_limited_edition')->default(false);
+            $table->date('release_date');
+            $table->date('end_production_date');
+            $table->string('model_number', length: 50);
+            $table->string('serial_number', length: 50);
+            $table->string('slug', length: 200)->unique();
         });
     }
 

@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('console_accessories', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('console_id')->constrained('consoles')->onDelete('cascade'); // Foreign key to consoles table
+            $table->foreignId('accessory_id')->constrained('accessories')->onDelete('cascade'); // Foreign key to accessories table
         });
     }
 

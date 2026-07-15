@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('revision_variants', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('revision_id')->constrained('revisions')->onDelete('cascade'); // Foreign key to revisions table
+            $table->foreignId('variant_id')->constrained('variants')->onDelete('cascade'); // Foreign key to variants table
         });
     }
 

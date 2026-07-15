@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('generations', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name', length: 5)->unique(); // 1st, 2nd, 3rd, 4th, 5th, 6th, 7th, 8th, 9th
+            $table->string('description', length: 1000)->nullable();
         });
     }
 

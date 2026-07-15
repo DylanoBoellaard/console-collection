@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('game_categories', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('game_id')->constrained('games')->onDelete('cascade'); // Foreign key to games table
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade'); // Foreign key to categories table
         });
     }
 

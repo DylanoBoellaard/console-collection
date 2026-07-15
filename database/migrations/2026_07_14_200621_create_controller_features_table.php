@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('games', function (Blueprint $table) {
+        Schema::create('controller_features', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name', length: 100)->unique();
-            $table->string('description', length: 1000)->nullable();
-            $table->string('slug', length: 200)->unique();
+            $table->foreignId('controller_id')->constrained('controllers')->onDelete('cascade'); // Foreign key to controllers table
+            $table->foreignId('feature_id')->constrained('features')->onDelete('cascade'); // Foreign key to features table
         });
     }
 
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('games');
+        Schema::dropIfExists('controller_features');
     }
 };

@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('features', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name', length: 100)->unique();              // CD player, Blu-Ray support, WiFi, Bluetooth, backwards compatible, etc.
+            $table->string('description', length: 1000)->nullable();    // Description of the feature
         });
     }
 

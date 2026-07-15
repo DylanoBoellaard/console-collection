@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('user_consoles', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Foreign key to users table
+            $table->foreignId('console_id')->constrained('consoles')->onDelete('cascade'); // Foreign key to consoles table
         });
     }
 

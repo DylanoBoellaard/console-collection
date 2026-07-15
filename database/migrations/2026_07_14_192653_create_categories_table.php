@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Game categories
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name', length: 100)->unique();
+            $table->string('description', length: 1000)->nullable();
         });
     }
 
