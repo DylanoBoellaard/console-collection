@@ -9,4 +9,9 @@ class ThreejsModel extends Model
 {
     /** @use HasFactory<\Database\Factories\ThreejsModelFactory> */
     use HasFactory;
+
+    public function variant()
+    {
+        return $this->belongsTo(Variant::class);
+    }
 }

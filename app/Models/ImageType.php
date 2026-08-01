@@ -9,4 +9,9 @@ class ImageType extends Model
 {
     /** @use HasFactory<\Database\Factories\ImageTypeFactory> */
     use HasFactory;
+
+    public function images()
+    {
+        return $this->hasMany(Image::class, 'image_type_id');
+    }
 }

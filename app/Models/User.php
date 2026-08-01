@@ -29,4 +29,37 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
+
+    public function userConsoles()
+    {
+        return $this->hasMany(UserConsole::class);
+    }
+
+    public function userGames()
+    {
+        return $this->hasMany(UserGame::class);
+    }
+
+    public function consoles()
+    {
+        return $this->belongsToMany(
+            Console::class,
+            'user_consoles'
+        )
+            ->withPivot([
+                'status',
+                'purchase_price',
+                'purchase_date',
+                'console_condition',
+                'box_condition',
+                'controller_condition',
+                'notes',
+            ]);
+    }
 }

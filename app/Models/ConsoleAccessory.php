@@ -9,4 +9,7 @@ class ConsoleAccessory extends Model
 {
     /** @use HasFactory<\Database\Factories\ConsoleAccessoryFactory> */
     use HasFactory;
+
+    // Empty - This model will only be used if there will be additional data that needs to be stored in this pivot table
+    // The relationships are already defined in the individual models (Accessory and Console) using belongsToMany
 }

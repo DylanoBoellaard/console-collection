@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class VariantColour extends Model
+class ControllerVariant extends Model
 {
-    /** @use HasFactory<\Database\Factories\VariantColourFactory> */
+    /** @use HasFactory<\Database\Factories\ControllerVariantFactory> */
     use HasFactory;
 
     // Empty - This model will only be used if there will be additional data that needs to be stored in this pivot table
-    // The relationships are already defined in the individual models (Variant and Colour) using belongsToMany
+    // The relationships are already defined in the individual models (Controller and Variant) using belongsToMany
 }
