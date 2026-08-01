@@ -14,13 +14,17 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('file_name', length: 250)->unique();
+            $table->string('filename', length: 250)->unique();
             $table->string('caption', length: 250);
             $table->foreignId('image_type_id')->constrained('image_types')->onDelete('cascade'); // Foreign key to image_types table
             $table->foreignId('variant_id')->constrained('variants')->onDelete('cascade')->nullable(); // Foreign key to variants table
-            $table->foreignId('controller_variant_id')->constrained('controller_variants')->onDelete('cascade')->nullable(); // Foreign key to controller_variants table
-            $table->foreignId('accessory_variant_id')->constrained('accessory_variants')->onDelete('cascade')->nullable(); // Foreign key to accessory_variants table
-            $table->foreignId('game_id')->constrained('games')->onDelete('cascade')->nullable(); // Foreign key to games table
+            // $table->foreignId('controller_variant_id')->constrained('controller_variants')->onDelete('cascade')->nullable(); // Foreign key to controller_variants table
+            // $table->foreignId('accessory_variant_id')->constrained('accessory_variants')->onDelete('cascade')->nullable(); // Foreign key to accessory_variants table
+            /*
+            //Gives issues. FIX LATER
+            $table->foreignId('game_id')->constrained('games')->nullable()->onDelete('cascade'); // Foreign key to games table
+            */
+            $table->integer('game_id')->nullable()->unsigned();
         });
     }
 

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('name', length: 200)->unique();
             $table->decimal('clockspeed', total: 8, places: 2);
             $table->string('clockspeed_unit', length: 5);
-            $table->decimal('videomemory', total: 8, places: 2)->nullable();
-            $table->string('videomemory_unit', length: 5)->nullable();
+            $table->decimal('video_memory', total: 8, places: 2)->nullable();
+            $table->string('video_memory_unit', length: 5)->nullable();
             $table->foreignId('manufacturer_id')->constrained('manufacturers')->onDelete('cascade'); // Foreign key to manufacturers table
         });
     }

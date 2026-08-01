@@ -16,9 +16,10 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name', length: 200)->unique();
             $table->string('description', length: 1000);
+            $table->enum('item_type', ['console', 'controller', 'accessory'])->default('console');
             $table->foreignId('edition_id')->constrained('editions')->onDelete('cascade'); // Foreign key to editions table
-            $table->string('model_number', length: 50);
-            $table->string('serial_number', length: 50);
+            $table->string('model_number', length: 50)->nullable();
+            $table->string('serial_number', length: 50)->nullable();
             $table->string('slug', length: 200)->unique();
         });
     }

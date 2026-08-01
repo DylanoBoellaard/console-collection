@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name', length: 100)->unique();
             $table->string('description', length: 1000)->nullable();
             $table->string('slug', length: 200)->unique();
+            $table->foreignId('generation_id')->constrained('generations')->onDelete('cascade'); // Foreign key to generations table
         });
     }
 

@@ -17,10 +17,10 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name', length: 200)->unique();
             $table->string('description', length: 1000);
-            $table->date('release_date');
-            $table->date('end_production_date');
-            $table->string('model_number', length: 50);
-            $table->string('serial_number', length: 50);
+            $table->date('release_date')->nullable();
+            $table->date('end_production_date')->nullable();
+            $table->string('model_number', length: 50)->nullable();
+            $table->string('serial_number', length: 50)->nullable();
             $table->string('slug', length: 200)->unique();
             $table->foreignId('model_id')->constrained('models')->onDelete('cascade'); // Foreign key to models table
         });
