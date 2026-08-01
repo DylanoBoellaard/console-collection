@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('caption', length: 250);
             $table->foreignId('image_type_id')->constrained('image_types')->onDelete('cascade'); // Foreign key to image_types table
             $table->foreignId('variant_id')->constrained('variants')->onDelete('cascade')->nullable(); // Foreign key to variants table
-            $table->foreignId('controller_id')->constrained('controllers')->onDelete('cascade')->nullable(); // Foreign key to controllers table
-            $table->foreignId('accessory_id')->constrained('accessories')->onDelete('cascade')->nullable(); // Foreign key to accessories table
+            $table->foreignId('controller_variant_id')->constrained('controller_variants')->onDelete('cascade')->nullable(); // Foreign key to controller_variants table
+            $table->foreignId('accessory_variant_id')->constrained('accessory_variants')->onDelete('cascade')->nullable(); // Foreign key to accessory_variants table
             $table->foreignId('game_id')->constrained('games')->onDelete('cascade')->nullable(); // Foreign key to games table
         });
     }

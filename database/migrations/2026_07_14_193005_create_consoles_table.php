@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name', length: 200)->unique();
             $table->string('description', length: 1000);
+            $table->boolean('region_locked')->default(false);
             $table->date('release_date');
             $table->date('end_production_date');
             $table->string('slug', length: 200)->unique();

@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('revision_variants', function (Blueprint $table) {
+        Schema::create('model_variants', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('revision_id')->constrained('revisions')->onDelete('cascade'); // Foreign key to revisions table
+            $table->foreignId('model_id')->constrained('models')->onDelete('cascade'); // Foreign key to models table
             $table->foreignId('variant_id')->constrained('variants')->onDelete('cascade'); // Foreign key to variants table
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('revision_variants');
+        Schema::dropIfExists('model_variants');
     }
 };

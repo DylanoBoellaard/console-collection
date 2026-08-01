@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('generations', function (Blueprint $table) {
+        Schema::create('accessory_variants', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name', length: 5)->unique(); // 1st, 2nd, 3rd, 4th, 5th, 6th, 7th, 8th, 9th
-            $table->string('description', length: 1000)->nullable();
-            $table->date('start_date')->nullable();
-            $table->date('end_date')->nullable();
+            $table->foreignId('accessory_id')->constrained('accessories')->onDelete('cascade'); // Foreign key to accessories table
+            $table->foreignId('variant_id')->constrained('variants')->onDelete('cascade'); // Foreign key to variants table
         });
     }
 
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('generations');
+        Schema::dropIfExists('accessory_variants');
     }
 };

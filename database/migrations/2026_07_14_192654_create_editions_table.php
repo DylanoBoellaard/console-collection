@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('variants', function (Blueprint $table) {
+        Schema::create('editions', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('name', length: 200)->unique();
             $table->string('description', length: 1000);
-            $table->foreignId('edition_id')->constrained('editions')->onDelete('cascade'); // Foreign key to editions table
-            $table->string('model_number', length: 50);
-            $table->string('serial_number', length: 50);
+            $table->date('release_date')->nullable();
+            $table->date('end_production_date')->nullable();
+            $table->boolean('is_limited_edition')->default(false);
             $table->string('slug', length: 200)->unique();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('variants');
+        Schema::dropIfExists('editions');
     }
 };
