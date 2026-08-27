@@ -1,0 +1,53 @@
+@use "../colours.scss";
+
+.console-card {
+    background-color: colours.$console-card-background;
+    margin: 0.5rem;
+    border-radius: 10px;
+    border: solid 1px colours.$nav_border;
+
+    &_tempcontainer {
+        height: 250px;
+        margin: 0.5rem 0.5rem 0 0.5rem;
+        &_image {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &_information {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin: 0 0.5rem 0 0.5rem;
+
+        h2,
+        p {
+            margin: 0;
+        }
+        h2 {
+            color: colours.$white;
+        }
+    }
+
+    &_generation {
+        display: flex;
+        flex-direction: row;
+        margin: 0 0.5rem 0 0.5rem;
+
+        &_divider {
+            margin: 0;
+            padding: 0 0.5rem 0 0.5rem;
+            font-size: 2rem;
+        }
+    }
+
+    p {
+        color: colours.$nav_link;
+    }
+
+    // &_tempcontainer, &_information, &_generation
+    // {
+        
+    // }
+}

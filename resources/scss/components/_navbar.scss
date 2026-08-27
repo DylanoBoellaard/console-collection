@@ -1,0 +1,142 @@
+@use "../colours.scss";
+
+.navbar {
+    width: 100%;
+    height: 72px;
+    background: colours.$nav_background2;
+    border-bottom: solid 1px colours.$nav_border;
+
+    &_container {
+        // width: min(1600px, 100%);
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &_logo {
+        height: 100%;
+        width: 25%;
+        max-width: 200px;
+
+        &_link {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            gap: 8px;
+        }
+
+        &_txt {
+            color: colours.$highlight-light;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        &_svg {
+            fill: colours.$highlight-light;
+        }
+    }
+
+    &_group {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        height: 90%;
+        max-width: 760px;
+
+        &_links {
+            display: flex;
+            gap: 32px;
+            height: 100%;
+            align-items: center;
+        }
+
+        &_dropdown {
+            position: relative;
+            flex-direction: row;
+
+            &_btn {
+                display: flex;
+                flex-direction: row;
+                cursor: pointer;
+
+                &_txt,
+                &_svg {
+                    color: colours.$nav_link;
+                    stroke: colours.$nav_link;
+                    margin: 0;
+                    border: none;
+                }
+            }
+
+            &_content {
+                display: none;
+                position: absolute;
+                background-color: colours.$white;
+                min-width: 200px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+
+                a {
+                    color: colours.$nav_link;
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    display: block;
+                    &:hover {
+                        background-color: colours.$nav_background;
+                        border-radius: 10px;
+                        color: colours.$highlight-light;
+                    }
+                }
+            }
+
+            &:hover &_content {
+                background-color: colours.$nav_background2;
+                display: block;
+                border-radius: 10px;
+            }
+
+            &:hover &_btn {
+                &_txt,
+                &_svg {
+                    color: colours.$highlight-light;
+                    stroke: colours.$highlight-light;
+                }
+            }
+        }
+
+        &_link {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            color: colours.$nav_link;
+            text-decoration: none;
+            transition: color 0.2s ease;
+            
+
+            &:hover,
+            &.is-active {
+                color: colours.$highlight-light;
+                border-bottom: solid 2px colours.$highlight-light; // FIX? - Moves link 2px higher
+                position: relative;
+            }
+            &.is-active::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 2px;
+            }
+        }
+
+        &_actions {
+            display: flex;
+            gap: 12px;
+        }
+    }
+}

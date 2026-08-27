@@ -4,8 +4,7 @@
 
 @section('content')
 
-<h1>DW Vault</h1>
-
-<a href="{{ route('consoles.index') }}">Consoles</a>
+<!-- {{-- Console grid here --}} -->
+<x-console-display :consoles="$consoles" />
 
 @endsection

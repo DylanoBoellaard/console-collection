@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>{{ $title ?? config('app.name') }}</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        @vite(['resources/css/app.scss', 'resources/js/app.js'])
+    <title>@yield('title', 'DW Vault')</title>
 
-        @livewireStyles
-    </head>
-    <body>
-        {{ $slot }}
+    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 
-        @livewireScripts
-    </body>
+    @livewireStyles
+</head>
+
+<body>
+
+    <x-navbar />
+
+    <x-model-banner />
+
+    <main class="page-content">
+        @yield('content')
+    </main>
+
+    @livewireScripts
+</body>
+
 </html>

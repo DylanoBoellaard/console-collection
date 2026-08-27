@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name', length: 200)->unique();
             $table->string('description', length: 1000);
             $table->enum('item_type', ['console', 'controller', 'accessory'])->default('console');
+            $table->boolean('is_primary')->default(false);
             $table->foreignId('edition_id')->constrained('editions')->onDelete('cascade'); // Foreign key to editions table
             $table->string('model_number', length: 50)->nullable();
             $table->string('serial_number', length: 50)->nullable();

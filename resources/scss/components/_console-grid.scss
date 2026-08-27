@@ -1,0 +1,13 @@
+@use "../components/console-card";
+@use "../colours.scss";
+
+.console-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+    background-color: colours.$nav_background2;
+    border: solid 2px colours.$nav_border;
+    border-radius: 10px;
+    width: 85%;
+    height: 100%;
+}

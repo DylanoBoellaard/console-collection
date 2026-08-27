@@ -27,4 +27,14 @@ class ConsoleModel extends Model
             'variant_id'
         );
     }
+
+    public function primaryVariants()
+    {
+        return $this->belongsToMany(
+            Variant::class,
+            'model_variants',
+            'model_id',
+            'variant_id'
+        )->where('is_primary', true);
+    }
 }

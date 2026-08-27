@@ -10,6 +10,10 @@ class Console extends Model
     /** @use HasFactory<\Database\Factories\ConsoleFactory> */
     use HasFactory;
 
+    protected $casts = [
+        'release_date' => 'date',
+    ];
+
     // One Console can have multiple models (One-to-Many)
     // This relationship uses the 'console_id' foreign key in the 'models' table to link consoles and models
     public function models()

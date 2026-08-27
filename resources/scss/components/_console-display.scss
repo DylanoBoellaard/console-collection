@@ -1,0 +1,9 @@
+@use "../components/console-grid";
+@use "../components/console-filters";
+
+.console-display {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}

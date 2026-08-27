@@ -25,17 +25,6 @@ class Variant extends Model
         return $this->hasMany(Image::class, 'variant_id');
     }
 
-    // Not used anymore
-    // public function revisions()
-    // {
-    //     return $this->belongsToMany(
-    //         Revision::class,
-    //         'revision_variants',
-    //         'variant_id',
-    //         'revision_id'
-    //     );
-    // }
-
     public function regions()
     {
         return $this->belongsToMany(
@@ -84,5 +73,15 @@ class Variant extends Model
             'variant_id',
             'accessory_id'
         );
+    }
+
+    public function frontImages()
+    {
+        return $this->hasMany(Image::class, 'variant_id')
+            ->whereHas('imageType', function ($query) {
+                $query->where('type', 'console')
+                    ->where('sub_type', 'item')
+                    ->where('angle', 'front');
+            }); 
     }
 }

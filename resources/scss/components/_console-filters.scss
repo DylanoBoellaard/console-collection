@@ -1,0 +1,115 @@
+@use "../colours.scss";
+
+.filters {
+    width: 15%;
+    max-width: 200px;
+    color: colours.$white;
+
+    &_title {
+        h2 {
+            margin: 0;
+        }
+    }
+
+    &_form {
+        display: flex;
+        flex-direction: column;
+        border: solid 2px colours.$nav_border;
+    }
+
+    &_section {
+        &_fieldset {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            border: none;
+
+            &_legend {
+            }
+
+            &_container {
+                &_search {
+                    background-color: colours.$console-card-background;
+                    padding: 0;
+                    border: solid 1px colours.$nav_border;
+                }
+                &_checkbox {
+                    background-color: colours.$console-card-background;
+                    color: colours.$console-card-background;
+                }
+                &_dropdown {
+                }
+                &_slider {
+                }
+                &_slider_output {
+                }
+                &_label,
+                &_search {
+                    color: colours.$nav_link;
+                }
+                &_label {
+                    display: block;
+                    position: relative;
+                    padding-left: 35px;
+                    margin-bottom: 12px;
+                    cursor: pointer;
+                    font-size: 22px;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    &_checkbox {
+                        position: absolute;
+                        opacity: 0;
+                        cursor: pointer;
+                        height: 0;
+                        width: 0;
+                    }
+                    &_checkmark {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 25px;
+                        width: 25px;
+                        background-color: colours.$highlight-light;
+
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            display: none;
+                            left: 9px;
+                            top: 5px;
+                            width: 5px;
+                            height: 10px;
+                            border: solid white;
+                            border-width: 0 3px 3px 0;
+                            -webkit-transform: rotate(45deg);
+                            -ms-transform: rotate(45deg);
+                            transform: rotate(45deg);
+                        }
+                    }
+                    &:hover input ~ &_checkmark {
+                        background-color: #ccc;
+                    }
+                    input:checked ~ &_checkmark {
+                        background-color: #2196f3;
+
+                        &:after {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &_section_manufacturers-release {
+        border-bottom: solid 2px colours.$nav_border;
+        border-top: solid 2px colours.$nav_border;
+    }
+    &_section_video {
+        border-bottom: solid 2px colours.$nav_border;
+    }
+}
