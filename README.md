@@ -70,7 +70,7 @@ The amount of items found in the database is shown on the top-left of the sectio
 ### Item Details page
 This page will display all the related items information.  
 
-![Main page displaying various consoles](./resources/img/Designs/game-collection_item_page.png)
+![Item page displaying item specific information](./resources/img/Designs/game-collection_item_page.png)
 
 The top section will feature a navigation bar to switch the page dynamically to view the items':
 - Overview
@@ -101,6 +101,8 @@ The bottom-right houses the items' images. The user will be able to click on an 
 
 ## Database Design
 A website as big as this requires a big database. See the image for details. The design was made using the website: DBDiagram.
+
+![Main page displaying various consoles](./resources/img/Designs/game-collection_database_diagram.png)
 
 ### Setup instructions
 Download [Node.js](https://nodejs.org/en/download/) & an SQL server like [WampServer](https://wampserver.aviatechno.net).  
